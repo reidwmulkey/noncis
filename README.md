@@ -1,6 +1,6 @@
 # Noncis
 
-This is a Redis adaptor for syncronizing nonces across nodeJS instances based on userIP.
+This is a Redis adaptor for syncronizing nonces across nodeJS instances based on user IP.
 
 Install
 -----------------
@@ -19,7 +19,7 @@ Let's say you have a terribly-insecure script that you trust, and you want to ru
 	</script>
 ```
 
-Rather than allowing a blanket opening for attacks in your Content Security Policy, you want to use script nonces. If you are running behind an reverse proxy (e.g. NGINX) pointing to multiple instances of your node app, then you cannot simply set a new nonce for each request. For example, lets say we have a simple view file that the user is trying to load.
+Rather than allowing a blanket opening for attacks in your Content Security Policy, you want to use script nonces. If you are running behind a reverse proxy (e.g. NGINX) pointing to multiple instances of your nodeJS app, then you cannot simply set a new nonce for each request. For example, lets say we have a simple view file that the user is trying to load.
 
 ```
 	index.jade
@@ -60,7 +60,7 @@ After NGINX load balances each request, we can end up with the following scenari
 	//(loaded from appServer2 with CSP of 'nonce-eb4482e0-f6d9-11e5-b0cc-19d0476997f5')
 	script(nonce='#{locals["nonce"]}') eval('console.log("There doesn\'t need to be 2 unsafe scripts for the purpose of this example, but whatever.")');
 ```
-So this package syncronizes the nonces across all node instances to avoid the above scenario. This package does not interfere with web socket adapters, so if you already have a web socket sync server, you can also use it to synchronize nonces.
+Both of these scripts will fail, due to the mismatching nonces. This package syncronizes the nonces across all nodeJS instances to avoid the above scenario. This package does not interfere with web socket adapters, so if you already have a web socket sync server, you can also use it to synchronize nonces.
 
 Usage
 -------
@@ -84,7 +84,8 @@ noncis.setNonce(req, res) sets the nonce for the res object, and returns a promi
 		})
 		.catch(next);
 	})
-```   
+```
+You will now be able to use the same res.locals.nonce across all of your instances.
 
 Test
 -----
