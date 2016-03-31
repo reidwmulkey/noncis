@@ -28,7 +28,7 @@ Rather than allowing a blanket opening for attacks in your Content Security Poli
 	script(nonce='#{locals["nonce"]}') eval('console.log("There doesn\'t need to be 2 unsafe scripts for the purpose of this example, but whatever.")');
 ```
 
-Now, let's set our nonce using some express middleware and use the helmet package to generate our CSP:
+Now, let's set our nonce using some express middleware and use the [helmet package](https://www.npmjs.com/package/helmet) to generate our CSP:
 ```
 	app.use(function(req,res,next){
 	 	res.locals.nonce = uuid.v1();
@@ -94,6 +94,10 @@ The test depends on a local redisDB and will modify the redis keys "::ffff:127.0
 	npm install --dev
 	npm test
 ```
+
+Contributing
+------------
+I know this could be generalized for other use cases to synchronize nonces where you cannot use `res.locals`. Feel free to email me with your use case and I can take a look at generalizing this package. OR, pull requests are welcome.
 
 License
 --------
