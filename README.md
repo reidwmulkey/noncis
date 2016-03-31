@@ -11,7 +11,7 @@ Install
 Purpose
 ---------
 
-Let's say you have a terribly-insecure script that you trust, and you want to run it on your nodeJS application.
+Let's say you have a terribly-insecure script(that you trust), and you want to run it on your nodeJS application.
 
 ```
 	<script>
@@ -75,7 +75,7 @@ First, start by initializing noncis:
 		//the PEXPIRE time is updated with each GET to avoid a nonce desynchronization
 ```
 
-noncis.setNonce(req, res) sets the nonce for the res object, and returns a promise that resolves the nonce. I recommend using an app.use() at the top of your nodeJS app, e.g.:
+`noncis.setNonce(req, res)` sets the nonce for the res object, and returns a promise that resolves the nonce. I recommend using an `app.use()` at the top of your nodeJS app, e.g.:
 ```
 	app.use(function(req, res, next){
 		noncis.setNonce(req, res)
@@ -85,7 +85,7 @@ noncis.setNonce(req, res) sets the nonce for the res object, and returns a promi
 		.catch(next);
 	})
 ```
-You will now be able to use the same res.locals.nonce across all of your instances.
+You will now be able to use the same `res.locals.nonce` across all of your instances.
 
 Test
 -----
