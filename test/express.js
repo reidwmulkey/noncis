@@ -1,6 +1,6 @@
 var express = require('express');
 var http = require('http');
-var noncis = require('../');
+var noncis = require('../')(6379, 'localhost', 2000);
 
 module.exports = function(port){
 	var app = express();

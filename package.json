@@ -5,21 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/test.js"
-  },
-  "author": "reidwmulkey",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "noncis"
-  },
-  "dependencies": {
-    "node-uuid": "^1.4.7",
-    "q": "^1.4.1",
-    "redis": "^2.6.0-0"
-  },
-  "devDependencies": {
-    "express": "^4.13.4",
-    "supertest": "^1.2.0",
-    "supertest-as-promised": "^3.0.0"
-  }
-}
+    },
+    "author": "reidwmulkey",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "noncis"
+      },
+      "dependencies": {
+        "node-uuid": "^1.4.7",
+        "q": "^1.4.1",
+        "redis": "^2.6.0-0"
+        },
+        "devDependencies": {
+          "express": "^4.13.4",
+          "mocha": "^2.4.5",
+          "supertest": "^1.2.0",
+          "supertest-as-promised": "^3.0.0"
+        }
+      }
