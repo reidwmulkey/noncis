@@ -1,6 +1,6 @@
 # Noncis
 
-This is a Redis adaptor for syncronizing nonces across nodeJS instances based on user IP.
+This is a Redis adapter for syncronizing nonces across nodeJS instances based on user IP.
 
 Install
 -----------------
